@@ -28,3 +28,6 @@ ANALYSIS_VALIDATION_REPORT.md
 # Python cache
 __pycache__/
 *.pyc
+
+# Figures output
+figures/
