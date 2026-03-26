@@ -1,93 +1,79 @@
-UC Professor Salary Compression Project
+UC Professor Salary Compression
 Econ 421 – Incentives
 
-Project Overview
-----------------
-This project analyzes salary trends among professors in the University of
-California (UC) system from 2010–2024. The goal is to study whether wage
-compression has occurred over time and whether there are signs of increased
-compression after 2022, when pay transparency became more salient in
-California.
+Overview
+--------
+This project studies wage compression among University of California professors
+from 2012 to 2024. The central question is whether salary dispersion narrowed
+after 2022, when pay transparency became more prominent in California.
 
-The project uses annual UC salary data across all campuses and focuses only on
-professor positions.
+The analysis uses publicly available UC salary data, focuses on professor
+positions only, and works entirely with nominal wages.
 
 Research Question
 -----------------
 Do UC professor salaries show evidence of wage compression over time, and
 particularly after 2022?
 
-Data Sources
-------------
+Data
+----
 Salary data come from two public sources:
 
 1. UC Annual Wage Database (UC Office of the President)
    https://ucannualwage.ucop.edu/wage/
-   Used to collect data for 2010–2012.
+   Used for 2010–2011 (available in professors/ but excluded from the main
+   analysis window of 2012–2024).
 
 2. California State Controller Government Compensation Database
    https://publicpay.ca.gov/
-   Used to collect data for 2013–2024.
+   Used for 2012–2024.
 
-All data are stored as yearly CSV files and filtered to include only professor
-positions.
+All raw data are stored as yearly CSV files in the professors/ directory and
+are filtered to include only professor-titled positions.
 
-Dataset Structure
------------------
-Each CSV contains the following columns:
+Each CSV has the following columns:
+  Year, EmployerName, Position, RegularPay, TotalWages
 
-Year
-EmployerName
-Position
-RegularPay
-TotalWages
+Repo Structure
+--------------
+main.ipynb
+    Primary analysis notebook. Run this end to end.
 
-Data are organized by year and stored in the professors/ directory.
+paper.tex / paper.pdf
+    LaTeX source and compiled paper.
 
-Planned Methodology
--------------------
-The analysis will focus on both wage levels and wage dispersion.
-
-Key variable:
-    log(TotalWages)
-
-Planned empirical approach:
-
-1. Clean and combine yearly salary datasets (2010–2024)
-2. Classify professors by rank using the Position field
-3. Estimate regressions of log wages with year and campus controls
-4. Analyze wage dispersion using statistics such as variance and
-   coefficient of variation
-5. Compare patterns before and after 2022
-
-The goal is to evaluate whether wage gaps between professors narrow over time
-or after the increase in pay transparency salience.
-
-Project Files
--------------
 professors/
-    Yearly UC professor salary CSV files
+    Yearly UC professor salary CSV files (uc_professors_YYYY.csv).
+    Covers 2010–2024 but the notebook uses 2012–2024.
 
-playground.ipynb
-    Main analysis notebook
+figures/
+    Pre-generated publication figures and regression tables.
+    These are also produced inline in main.ipynb.
 
-new_anal.ipynb
-    Secondary notebook for experimentation
-
-test_cells.py
-    Script used to test individual analysis components
+export_figures.py
+    Standalone script to regenerate all figures in figures/.
+    Requires the same dependencies as main.ipynb plus `morethemes`.
+    Not required to run main.ipynb.
 
 How to Run
 ----------
-1. Install Python dependencies (pandas, numpy, statsmodels, scipy).
-2. Open playground.ipynb in Jupyter.
-3. Run cells sequentially to load data and begin analysis.
+1. Install Python dependencies:
+      pip install pandas numpy matplotlib statsmodels scipy
 
-Notes
------
-The dataset currently contains nominal wage variables. Earlier attempts to
-construct real wages using CPI were incorrect and will not be used in the
-baseline analysis.
+2. Open main.ipynb in Jupyter and run all cells top to bottom.
+
+All data files are included in the repo. No external downloads or setup
+steps are required beyond installing the packages above.
+
+Methods Summary
+---------------
+- Load and standardize professor salary files for 2012–2024
+- Classify professors by rank (Assistant, Associate, Full, Clinical, Research)
+- Estimate regressions of log wages with linear year trend, rank, and campus
+- Measure within-rank salary dispersion using coefficient of variation
+- Compare pre-2022 vs post-2022 variance using Levene's test
+- Estimate a difference-in-differences compression test (Rank × Post2022)
+- Run robustness checks: VIF, deduplication, within-rank regressions
 
 Authors
 -------

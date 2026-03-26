@@ -1,0 +1,30 @@
+# macOS metadata
+.DS_Store
+**/.DS_Store
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Work-in-progress notebooks
+main copy.ipynb
+disregard.ipynb
+
+# Internal analysis documents
+ANALYSIS_VALIDATION_REPORT.md
+
+# Course submission artifact (paper.pdf is the canonical version)
+421 Final Project.pdf
+
+# Python cache
+__pycache__/
+*.pyc
