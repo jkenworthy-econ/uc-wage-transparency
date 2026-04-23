@@ -55,12 +55,16 @@ export_figures.py
     Requires the same dependencies as main.ipynb plus `morethemes`.
     Not required to run main.ipynb.
 
+ANALYSIS_VALIDATION_REPORT.md
+    Documents a CPI data flaw identified during validation. Explains why
+    the analysis uses nominal wages only.
+
 How to Run
 ----------
 1. Install Python dependencies:
       pip install pandas numpy matplotlib statsmodels scipy
-
 2. Open main.ipynb in Jupyter and run all cells top to bottom.
+3. Optionally run export_figures.py to regenerate all figures in figures/.
 
 All data files are included in the repo. No external downloads or setup
 steps are required beyond installing the packages above.
