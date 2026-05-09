@@ -175,8 +175,8 @@ LAYOUT_BASE = dict(
     plot_bgcolor=BG,
     paper_bgcolor=BG,
     font=dict(family="sans-serif", color=CHARCOAL, size=12),
-    margin=dict(l=55, r=25, t=55, b=50),
 )
+_MARGIN_DEFAULT = dict(l=55, r=25, t=55, b=50)
 
 
 # ===========================================================================
@@ -258,6 +258,7 @@ with tab1:
 
         fig1.update_layout(
             **LAYOUT_BASE,
+            margin=_MARGIN_DEFAULT,
             height=420,
             xaxis=dict(
                 title="Year",
@@ -437,6 +438,7 @@ with tab2:
 
     fig2.update_layout(
         **LAYOUT_BASE,
+        margin=_MARGIN_DEFAULT,
         barmode="overlay",
         height=380,
         xaxis=dict(title="Total Wages (nominal $)", tickformat="$,.0f",
