@@ -32,3 +32,6 @@ __pycache__/
 # Figures output
 figures/
 
+# Raw data (large CSV files, do not commit)
+professors/
+
