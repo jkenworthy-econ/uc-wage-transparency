@@ -32,5 +32,3 @@ __pycache__/
 # Figures output
 figures/
 
-# Paper source
-paper.tex
