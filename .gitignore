@@ -1,7 +1,3 @@
-# macOS metadata
-.DS_Store
-**/.DS_Store
-
 # LaTeX build artifacts
 *.aux
 *.log
@@ -11,27 +7,26 @@
 *.fdb_latexmk
 *.synctex.gz
 
-# Jupyter checkpoints
-.ipynb_checkpoints/
-**/.ipynb_checkpoints/
+# macOS metadata
+.DS_Store
+**/.DS_Store
 
-# Work-in-progress notebooks
-main copy.ipynb
-disregard.ipynb
-
-# Internal analysis documents
-ANALYSIS_VALIDATION_REPORT.md
-
-# Course submission artifact (paper.pdf is the canonical version)
-421 Final Project.pdf
+# Python virtual environment
+.venv/
 
 # Python cache
 __pycache__/
 *.pyc
 
-# Figures output
-figures/
+# Jupyter checkpoints
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
 
 # Raw data (large CSV files, do not commit)
 professors/
 
+# Backup / duplicate paper files
+paper copy.*
+
+# Course submission artifact
+421 Final Project.pdf
